@@ -10,5 +10,4 @@ exports.create = (req, res) => {
     }).then(user => {
         res.json(user);
     })
-
 };

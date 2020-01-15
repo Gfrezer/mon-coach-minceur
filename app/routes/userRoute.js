@@ -8,8 +8,8 @@ module.exports = function (app) {
     app.post("/compte", compte.create);
     app.get("/compte", compte.create);
 
-
-
-
+    const test = require("../controllers/testController.js")
+    app.post("/test", test);
+    app.get("/test", test);
 
 }

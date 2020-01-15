@@ -8,7 +8,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-
       UserId: {
         type: Sequelize.INTEGER,
         references: {
@@ -36,6 +35,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       }
+
     })
 
 
