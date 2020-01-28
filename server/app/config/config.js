@@ -6,7 +6,7 @@ module.exports = {
     database: "coachminceur",
     host: "127.0.0.1",
     dialect: "postgres",
-    operatorsAliases: false
+    operatorsAliases: 1
   },
   test: {
     username: "root",

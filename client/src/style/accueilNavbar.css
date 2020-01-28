@@ -1,0 +1,21 @@
+.navbarAccueil {
+    width: 14vw;
+    height: 30vw;
+    margin-left: 33vw;
+    margin-top: 30vw;
+    position: absolute;
+    background-color: rgba(149, 149, 151, 0.8);
+
+}
+
+.navbar-expand .navbar-nav {
+    -ms-flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+}
+
+.navbar-expand .navbar-nav {
+    font-size: 1.3vw;
+
+}

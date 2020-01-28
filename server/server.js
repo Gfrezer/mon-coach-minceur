@@ -1,13 +1,22 @@
 const express = require('express');
 const bodyParser = require("body-parser");
 const path = require("path");
-
-
+const hbs = require("hbs");
 
 
 
 
 const app = express();
+
+app.use(express.json());
+app.use(express.urlencoded({
+    extended: false
+}));
+
+app.set('view engine', 'hbs');
+app.set('views', path.join(__dirname, '/app/views'));
+
+//app.use(express.static(path.join(__dirname, '../client/dist')));
 
 //body-parser
 app.use(bodyParser.json());
@@ -29,8 +38,8 @@ db.sequelize.sync({
 }).then(() => {
     console.log('mise à jour de la base effectuée { alter: true }');
 
-    //ECOUTE SUR LE PORT:2503
-    const port = process.env.PORT || 3000;
+    //ECOUTE SUR LE PORT:3200
+    const port = process.env.PORT || 3200;
     app.listen(port);
     console.log("L'api coachminceur tourne sur le port : " + port);
 });
