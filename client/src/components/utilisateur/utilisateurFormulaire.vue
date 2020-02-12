@@ -1,8 +1,8 @@
 <template>
   <div class="formulaire">
     <b-form @submit="onSubmit">
-      <h4>MEMBRE</h4>
-      <h6>Veillez vous identifiez</h6>
+      <h4>Pas encore membre ?</h4>
+      <h6>Formulaire d'inscription</h6>
       <b-form-group id="input-group-1" label="Nom:" label-for="nom">
         <b-form-input id="aliment" type="text" v-model="user.nom" required placeholder="Nom"></b-form-input>
       </b-form-group>
@@ -15,35 +15,43 @@
         <b-form-input id="input-3" type="text" v-model="user.email" required placeholder="email"></b-form-input>
       </b-form-group>
 
+      <b-form-group id="input-group-4" label="password:" label-for="password">
+        <b-input type="password" id="text-password" aria-describedby="password-help-block"></b-input>
+      </b-form-group>
+
       <b-button class="boutonFormulaire" type="submit" variant="primary">Validez</b-button>
-      <router-link to="/userTableau">Pas encore inscrit ?</router-link>
+      <router-link to="/utilisateurConnection">Connectez-vous !</router-link>
     </b-form>
   </div>
 </template>
 
 <script>
-import requestCreate from "../libs/request";
-import fetchRequest from "../libs/fetch";
-import routes from "../routes/routes";
+import requestCreate from "../../libs/request";
+import fetchRequest from "../../libs/fetch";
+import routes from "../../routes/routes";
 export default {
-  name: "userformulaire",
+  name: "utilisateurFormulaire",
   data: function() {
     return {
       user: {
         nom: "",
         prenom: "",
-        email: ""
+        email: "",
+        password: ""
       }
     };
   },
   methods: {
     onSubmit(evt) {
       evt.preventDefault();
+      //let data = this;
       let request = requestCreate("/user/create", "POST", this.user);
+      //this.user.prenom = "tata";
       // Call REST web service with fetch API
-      fetchRequest(request).then(data => {
-        alert(`Votre compte ` + data.nom + ` est à jour!`),
-          routes.push({ path: "/userPagePrincipale" });
+      fetchRequest(request).then(response => {
+        // this.user.prenom = "toto " + response.nom;
+        alert(`Votre compte ` + response.nom + ` est à jour!`),
+          routes.push({ path: "/pagePerso" });
       });
     }
   }
@@ -51,7 +59,7 @@ export default {
 </script>
 
 
-<style  src="../style/userFormulaire.css">
+<style  src="../../style/utilisateur/utilisateurFormulaire.css" scoped>
 </style>
 
    

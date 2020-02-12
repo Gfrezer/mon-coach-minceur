@@ -14,6 +14,7 @@ module.exports = {
       prenom: {
         type: Sequelize.STRING
       },
+
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

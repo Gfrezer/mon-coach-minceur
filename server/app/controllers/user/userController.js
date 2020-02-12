@@ -1,4 +1,4 @@
-const db = require("../config/db.config.js");
+const db = require("../../config/db.config.js");
 const User = db.User;
 
 //CREATE
@@ -7,7 +7,8 @@ exports.create = (req, res) => {
     User.create({
         nom: req.body.nom,
         prenom: req.body.prenom,
-        email: req.body.email
+        email: req.body.email,
+        password: req.body.password
     }).then(monuser => {
         res.send(monuser);
     })
@@ -27,6 +28,7 @@ exports.delete = (req, res) => {
     })
 
 };
+
 exports.read = (req, res) => {
     User.findAll().then(users => {
         res.json(users)

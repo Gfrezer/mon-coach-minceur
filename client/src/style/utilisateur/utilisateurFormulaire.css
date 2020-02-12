@@ -1,0 +1,34 @@
+.formulaire label {
+    color: rgb(31, 97, 36);
+}
+
+
+
+.boutonFormulaire {
+    color: rgb(31, 97, 36);
+}
+
+.formulaire {
+    position: absolute;
+    width: 46vw;
+    height: 23vw;
+    border: 3px solid #006400;
+    background-color: rgba(149, 149, 151, 0.8);
+    padding: 8px;
+    border-radius: 26px;
+    margin-top: 34vw;
+    margin-left: 49vw;
+}
+
+.formulaire h4 {
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(68, 156, 68);
+    font-size: 3vw;
+}
+
+.formulaire h6 {
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(68, 156, 68);
+    font-size: 1vw;
+    text-align: center;
+}

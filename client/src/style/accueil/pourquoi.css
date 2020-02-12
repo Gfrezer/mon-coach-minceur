@@ -1,0 +1,9 @@
+.pourquoiText p {
+    font-size: 1vw;
+    font-family: sans-serif;
+    color: rgb(0, 0, 0);
+    position: absolute;
+    margin-top: 34vw;
+    margin-left: 49vw;
+    width: 48vw;
+}

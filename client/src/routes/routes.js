@@ -10,25 +10,48 @@ export default new VueRouter({
 
   mode: 'history',
   routes: [{
-      path: '/',
+      path: "/",
+      redirect: "/accueil"
+    },
+    {
+      path: '/accueil',
       name: 'accueil',
-      component: () => import("../components/accueil.vue")
+      component: () => import("../components/accueil/accueil.vue"),
+      children: [{
+          path: 'utilisateurConnection',
+          name: 'utilisateurConnection',
+          component: () => import("../components/utilisateur/utilisateurConnection.vue")
+        },
+        {
+          path: 'utilisateurFormulaire',
+          name: 'utilisateurFormulaire',
+          component: () => import("../components/utilisateur/utilisateurFormulaire.vue")
+        },
+        {
+          path: 'pourquoi',
+          name: 'pourquoi',
+          component: () => import("../components/accueil/pourquoi.vue")
+        },
+        {
+          path: 'quisommesNous',
+          name: 'quisommesNous',
+          component: () => import("../components/accueil/quiSommesNous.vue")
+        },
+      ]
+    },
+
+
+
+    {
+      path: '/utilisateurTableau',
+      name: 'utilisateurTableau',
+      component: () => import("../components/utilisateur/utilisateurTableau.vue")
     },
     {
-      path: '/userTableau',
-      name: 'userTableau',
-      component: () => import("../components/userTableau.vue")
-    },
-    {
-      path: '/userFormulaire',
-      name: 'userFormulaire',
-      component: () => import("../components/userFormulaire.vue")
-    },
-    {
-      path: '/userPagePrincipale',
-      name: 'userPagePrincipale',
-      component: () => import("../components/userPagePrincipale.vue")
+      path: '/pagePerso',
+      name: 'pagePerso',
+      component: () => import("../components/utilisateur/utilisateurPagePerso.vue")
     }
   ]
 
-})
+});

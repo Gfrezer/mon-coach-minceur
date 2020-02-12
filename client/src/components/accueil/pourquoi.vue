@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="pourquoiText">
     <p>
       Lorem ipsum dolor sit amet, laudem explicari nam id, vel invidunt molestiae ut. Vitae tacimates cu sed. Sed no tamquam propriae definitionem, debet error vim no. Eam ex malis accusam, ad vis quas commune voluptatum, tibique deleniti epicurei duo in. Meliore habemus insolens et qui, ex ius amet facilisi.
       Per quas cetero te, cu per petentium disputando. Viris corpora quaerendum eos no, an solet appareat dissentias has. Cu usu iudico partiendo, et posse graeco eum. Mea munere corrumpit at, ius vocent honestatis cu. Ludus audiam copiosae nec ut, et error animal consequuntur mea. Vix dolore animal adolescens ad, pro at amet placerat.
@@ -15,5 +15,5 @@
 export default {};
 </script>
 
-<style>
+<style style src="../../style/accueil/pourquoi.css" scoped>
 </style>

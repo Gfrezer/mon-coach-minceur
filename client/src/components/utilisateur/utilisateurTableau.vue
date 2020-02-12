@@ -1,15 +1,14 @@
 <template>
-  <div>
+  <div class="tableau">
     <h1>tableau des utilisateurs</h1>
     <h3 v-if="loading">Chargement...</h3>
     <b-table striped hover :items="users"></b-table>
   </div>
 </template>
 
-
 <script>
-import requestCreate from "../libs/request";
-import fetchRequest from "../libs/fetch";
+import requestCreate from "../../libs/request";
+import fetchRequest from "../../libs/fetch";
 export default {
   data: function() {
     return {
@@ -25,7 +24,7 @@ export default {
     fetchData: function() {
       let data = this;
       this.loading = true;
-      let request = requestCreate("/user", "GET");
+      let request = requestCreate("/user/read", "GET");
       fetchRequest(request).then(function(parsedJson) {
         data.users = parsedJson;
         data.loading = false;
@@ -35,9 +34,4 @@ export default {
 };
 </script>
 
-
-
-
-
-<style>
-</style>
+<style src="../../style/utilisateur/tableau.css" scoped></style>

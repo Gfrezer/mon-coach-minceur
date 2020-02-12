@@ -1,0 +1,24 @@
+.photoPagePerso {
+  width: 100%;
+  height: auto;
+  opacity: 0.5;
+}
+
+.pagePerso p {
+  color: brown;
+}
+
+.my-1 {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.container-form {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}

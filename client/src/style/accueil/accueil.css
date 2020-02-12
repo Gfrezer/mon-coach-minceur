@@ -80,7 +80,15 @@ body {
     background-color: rgba(149, 149, 151, 0.8);
 }
 
-
+.fondText {
+    position: absolute;
+    width: 80vw;
+    height: 26vw;
+    background-color: rgba(149, 149, 151, 0.8);
+    margin-top: 32.5vw;
+    margin-left: 17vw;
+    border-radius: 1vw;
+}
 
 
 
