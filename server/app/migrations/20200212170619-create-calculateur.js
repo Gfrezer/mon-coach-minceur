@@ -1,26 +1,35 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Aliments', {
-      aliments_id: {
+    return queryInterface.createTable('Calculateurs', {
+      id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      nom: {
-        type: Sequelize.STRING
-      },
-      glucides: {
+      poids: {
         type: Sequelize.FLOAT
       },
-      lipides: {
+      tauxDeGraisse: {
         type: Sequelize.FLOAT
       },
-      proteines: {
+      multiplicateurActivite: {
         type: Sequelize.FLOAT
       },
-      calories: {
+      maintenance: {
+        type: Sequelize.FLOAT
+      },
+      surplusPriseMasse: {
+        type: Sequelize.FLOAT
+      },
+      deficiteSeche: {
+        type: Sequelize.FLOAT
+      },
+      objectifPriseMasse: {
+        type: Sequelize.FLOAT
+      },
+      objectifSeche: {
         type: Sequelize.FLOAT
       },
       createdAt: {
@@ -34,6 +43,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Aliments');
+    return queryInterface.dropTable('Calculateurs');
   }
 };

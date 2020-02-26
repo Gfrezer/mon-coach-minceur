@@ -4,7 +4,7 @@
       <h4>Pas encore membre ?</h4>
       <h6>Formulaire d'inscription</h6>
       <b-form-group id="input-group-1" label="Nom:" label-for="nom">
-        <b-form-input id="aliment" type="text" v-model="user.nom" required placeholder="Nom"></b-form-input>
+        <b-form-input id="input-1" type="text" v-model="user.nom" required placeholder="Nom"></b-form-input>
       </b-form-group>
 
       <b-form-group id="input-group-2" label="prenom:" label-for="prenom">
@@ -16,7 +16,13 @@
       </b-form-group>
 
       <b-form-group id="input-group-4" label="password:" label-for="password">
-        <b-input type="password" id="text-password" aria-describedby="password-help-block"></b-input>
+        <b-form-input
+          id="input-4"
+          type="password"
+          v-model="user.password"
+          required
+          placeholder="password"
+        ></b-form-input>
       </b-form-group>
 
       <b-button class="boutonFormulaire" type="submit" variant="primary">Validez</b-button>

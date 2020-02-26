@@ -42,16 +42,26 @@ export default new VueRouter({
 
 
 
+
+
+
     {
-      path: '/utilisateurTableau',
-      name: 'utilisateurTableau',
-      component: () => import("../components/utilisateur/utilisateurTableau.vue")
+      path: '/adminPagePerso',
+      name: 'adminPagePerso',
+      component: () => import("../components/administrateur/adminPagePerso.vue"),
+
+      children: [{
+        path: '',
+        name: 'utilisateurTableau',
+        component: () => import("../components/administrateur/utilisateurTableau.vue")
+      }],
     },
+
     {
       path: '/pagePerso',
       name: 'pagePerso',
       component: () => import("../components/utilisateur/utilisateurPagePerso.vue")
-    }
+    },
   ]
 
 });

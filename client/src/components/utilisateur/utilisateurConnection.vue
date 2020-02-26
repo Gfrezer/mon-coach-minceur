@@ -69,8 +69,11 @@ export default {
         });
         fetchRequest(requestLogin).then(response => {
           window.localStorage.setItem("user", response.nom);
-          alert(`Vous etes ` + response.nom),
-            routes.push({ path: "/pagePerso" });
+          alert(`Vous etes ` + response.nom);
+          console.log(response);
+          if (response.isAdmin === true) {
+            routes.push({ path: "/adminPagePerso" });
+          } else routes.push({ path: "/pagePerso" });
         });
       }
     }

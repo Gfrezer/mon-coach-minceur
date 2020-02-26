@@ -4,10 +4,15 @@ module.exports = (sequelize, DataTypes) => {
     prenom: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING,
+    isAdmin: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: '0'
+    },
+
   }, {});
   User.associate = function (models) {
-    User.hasOne(models.Compte);
-    User.hasOne(models.Aliment);
+
+    User.hasOne(models.Calculateur);
   };
   return User;
 };

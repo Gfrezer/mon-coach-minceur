@@ -1,4 +1,6 @@
 // vue.config.js
+var path = require('path')
+
 module.exports = {
     devServer: {
         proxy: {
@@ -12,5 +14,14 @@ module.exports = {
                 }
             }
         }
+    },
+    configureWebpack: {
+        resolve: {
+            alias: {
+                src: path.resolve(__dirname, 'src')
+            }
+        },
+        devtool: 'source-map'
+
     }
 }

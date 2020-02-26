@@ -12,6 +12,12 @@ module.exports = {
         'Users',
         'password',
         Sequelize.STRING
+      ),
+      queryInterface.addColumn(
+        'Users',
+        'isAdmin',
+        //TODO : rajouter la valeur false par défaut
+        Sequelize.BOOLEAN
       )
     ]);
   },
@@ -20,7 +26,8 @@ module.exports = {
     queryInterface.removeColumn(
       'Users',
       'email',
-      'password'
+      'password',
+      'isAdmin'
     );
   }
 }
