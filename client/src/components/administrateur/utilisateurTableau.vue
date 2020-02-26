@@ -4,7 +4,7 @@
     <h3 v-if="loading">Chargement...</h3>
     <b-table :fields="fields" striped hover :items="users">
       <template v-slot:cell(supprimer)>
-        <b-button size="sm" @click="info()" class="mr-1">Supprimer ?</b-button>
+        <b-button size="sm" @click="supprimer" class="mr-1">Supprimer ?</b-button>
       </template>
     </b-table>
   </div>
@@ -18,6 +18,12 @@ import routes from "../../routes/routes";
 export default {
   data: function() {
     return {
+      user: {
+        nom: "",
+        prenom: "",
+        email: "",
+        password: ""
+      },
       fields: [
         { key: "id", label: "id" },
         { key: "nom", label: "nom", sortable: true, sortDirection: "desc" },
@@ -45,11 +51,11 @@ export default {
         data.loading = false;
       });
     },
-    onSubmit(evt) {
-      evt.preventDefault();
+
+    supprimer: function() {
       let request = requestDelete("/user/delete", "POST", this.user);
       fetchRequest(request).then(response => {
-        alert(`Votre compte ` + response.nom + ` est à jour!`),
+        alert(`Votre compte ` + response + ` est à jour!`),
           routes.push({ path: "/pagePerso" });
       });
     }

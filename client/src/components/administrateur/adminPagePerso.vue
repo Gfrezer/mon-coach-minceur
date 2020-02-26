@@ -2,15 +2,14 @@
   <section>
     <div>
       <div class="container-accueil">
-        <b-button v-if="connecter()" @click="logout">Déconnectez-vous</b-button>
-
         <div class="home_title">
           <img src="../../../public/images/fond_1.jpg" class="photo_parquet" />
-          <h1>Page Administrateur</h1>
+          <b-button class="deconnecter" v-if="connecter()" @click="logout">Déconnectez-vous</b-button>
+          <h1 class="h1Admin">Page Administrateur</h1>
 
           <div class="fondText"></div>
         </div>
-        <router-view></router-view>
+        <router-view class="tableau"></router-view>
       </div>
     </div>
   </section>
@@ -55,7 +54,7 @@ export default {
 
 
 
-<style src="../../style/accueil/accueil.css" scoped></style>
+<style src="../../style/administrateur/pagePerso.css" ></style>
 
 
 

@@ -1,0 +1,21 @@
+.deconnecter {
+    position: relative;
+    margin-top: 2vw;
+    margin-left: 5vw;
+}
+
+.h1Admin {
+    position: relative;
+    margin-left: 5vw;
+    color: darkgreen;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+img {
+    position: absolute;
+}
+
+.tableau {
+    margin-left: 30vw;
+    margin-top: 5vw;
+}
