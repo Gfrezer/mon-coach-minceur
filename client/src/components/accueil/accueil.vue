@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import accueilNavbar from "../accueil/accueilNavbar";
+import accueilNavbar from "src/components/accueil/accueilNavbar";
 
 export default {
   components: {

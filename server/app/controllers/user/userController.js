@@ -24,8 +24,8 @@ exports.delete = (req, res) => {
         where: {
             id: req.body.id,
         }
-    }).then(() => {
-        res.status(200).send("user supprimer!");
+    }).then((monuser) => {
+        res.send(monuser);
     })
 
 };

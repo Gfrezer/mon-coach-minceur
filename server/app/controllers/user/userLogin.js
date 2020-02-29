@@ -7,7 +7,7 @@ module.exports = (req, res, next) => {
         }
 
         if (!user) {
-            return res.status(400).send([user, "Cannot log in", info]);
+            return res.status(401).send([user, "Cannot log in", info]);
         }
 
         req.login(user, err => {

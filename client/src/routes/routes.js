@@ -28,23 +28,17 @@ export default new VueRouter({
           component: () => import("../components/utilisateur/utilisateurFormulaire.vue")
         },
         {
-          path: 'pourquoi',
+          path: 'pourquoiCaMarche',
           name: 'pourquoi',
           component: () => import("../components/accueil/pourquoi.vue")
         },
         {
-          path: 'quisommesNous',
-          name: 'quisommesNous',
+          path: 'quisommesNousIci',
+          name: 'quiSommesNous',
           component: () => import("../components/accueil/quiSommesNous.vue")
         },
       ]
     },
-
-
-
-
-
-
     {
       path: '/adminPagePerso',
       name: 'adminPagePerso',
@@ -62,6 +56,14 @@ export default new VueRouter({
       name: 'pagePerso',
       component: () => import("../components/utilisateur/utilisateurPagePerso.vue")
     },
+
+
+    //ERREURS
+    {
+      path: '/erreur401',
+      name: 'erreur401',
+      component: () => import("../components/erreurs/erreur401.vue")
+    }
   ]
 
 });

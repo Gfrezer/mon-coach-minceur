@@ -7,9 +7,10 @@
           <b-button class="deconnecter" v-if="connecter()" @click="logout">Déconnectez-vous</b-button>
           <h1 class="h1Admin">Page Administrateur</h1>
 
-          <div class="fondText"></div>
+          <div class="fondText">
+            <router-view class="tableau"></router-view>
+          </div>
         </div>
-        <router-view class="tableau"></router-view>
       </div>
     </div>
   </section>
@@ -54,7 +55,7 @@ export default {
 
 
 
-<style src="../../style/administrateur/pagePerso.css" ></style>
+<style src="../../style/administrateur/pagePerso.css"  ></style>
 
 
 

@@ -16,6 +16,16 @@ img {
 }
 
 .tableau {
-    margin-left: 30vw;
+    margin-left: 1vw;
     margin-top: 5vw;
+}
+
+.fondText {
+    position: absolute;
+    width: 41vw;
+    height: 20vw;
+    background-color: rgba(149, 149, 151, 0.8);
+    margin-top: 0.5vw;
+    margin-left: 28vw;
+    border-radius: 1vw;
 }

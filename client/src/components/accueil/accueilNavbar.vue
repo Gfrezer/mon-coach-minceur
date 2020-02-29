@@ -3,14 +3,14 @@
     <b-navbar class="navbarAccueil" type="dark" variant="dark">
       <b-navbar-nav>
         <router-link
-          to="/accueil/pourquoi"
+          :to="{name:'pourquoi'}"
           class="nav-item nav-link"
           active-class="active"
           exact
         >Pourquoi ça marche ?</router-link>
 
         <router-link
-          to="/accueil/quiSommesNous"
+          :to="{name:'quiSommesNous'}"
           class="nav-item nav-link"
           active-class="active"
           exact

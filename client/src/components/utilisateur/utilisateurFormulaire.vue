@@ -32,9 +32,9 @@
 </template>
 
 <script>
-import requestCreate from "../../libs/request";
-import fetchRequest from "../../libs/fetch";
-import routes from "../../routes/routes";
+import requestCreate from "src/libs/request";
+import fetchRequest from "src/libs/fetch";
+import routes from "src/routes/routes";
 export default {
   name: "utilisateurFormulaire",
   data: function() {

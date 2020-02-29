@@ -5,6 +5,7 @@ export default function (request) {
                 return response.json();
             } else {
                 console.log(`Erreur : ${response.status} ${response.statusText}`);
+                return response;
             }
         })
         .catch(e => {
