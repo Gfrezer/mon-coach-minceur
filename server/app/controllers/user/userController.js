@@ -9,6 +9,7 @@ exports.create = (req, res) => {
         prenom: req.body.prenom,
         email: req.body.email,
         password: req.body.password,
+        isadmin: req.body.isAdmin
 
     }).then(monuser => {
         res.send(monuser);
@@ -24,15 +25,39 @@ exports.delete = (req, res) => {
         where: {
             id: req.body.id,
         }
-    }).then((monuser) => {
+    }).then(monuser => {
+        res.send({
+            delete: "ok"
+        });
+    })
+
+};
+//LIRE AFFICHER
+exports.read = (req, res) => {
+    User.findAll().then(monuser => {
         res.send(monuser);
     })
 
 };
 
-exports.read = (req, res) => {
-    User.findAll().then(users => {
-        res.json(users)
+//ISADMIN OU PAS
+exports.toggleAdmin = (req, res) => {
+
+    User.update({
+        isAdmin: req.body.isAdmin
+    }, {
+        where: {
+            id: req.body.id
+        }
+
+    }).then(monuser => {
+        User.findOne({
+            where: {
+                id: req.body.id
+            }
+        }).then(monuser => {
+            res.send(monuser);
+        })
     })
 
 };
