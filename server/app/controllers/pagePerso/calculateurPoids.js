@@ -8,12 +8,11 @@ exports.create = (req, res) => {
         poids: req.body.poids,
         tauxDeGraisse: req.body.tauxDeGraisse,
         multiplicateurActivite: req.body.multiplicateurActivite,
-        maintenance: req.body.maintenance,
         surplusPriseMasse: req.body.surplusPriseMasse,
         deficiteSeche: req.body.deficiteSeche,
-        objectifPriseMasse: req.body.objectifPriseMasse,
-        objectifSeche: req.body.objectifSeche
+        UserId: req.session.user.id
     }).then(monPoids => {
+        console.log(req.session.user.id)
         res.send(monPoids);
     })
 

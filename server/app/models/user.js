@@ -9,10 +9,11 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: '0'
     },
 
+
   }, {});
   User.associate = function (models) {
 
-    User.hasOne(models.Calculateur);
+    User.hasMany(models.Calculateur);
   };
   return User;
 };

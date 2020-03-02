@@ -10,6 +10,7 @@ export default new VueRouter({
 
   mode: 'history',
   routes: [{
+      //ACCUEIL
       path: "/",
       redirect: "/accueil"
     },
@@ -39,22 +40,51 @@ export default new VueRouter({
         },
       ]
     },
+    //ADMINISTRATEUR
     {
       path: '/adminPagePerso',
       name: 'adminPagePerso',
       component: () => import("../components/administrateur/adminPagePerso.vue"),
+      beforeEnter(to, from, next) {
+        const user = JSON.parse(window.localStorage.getItem("user"));
+        if (user && user.isAdmin) {
+          next();
+        } else {
+          next({
+            name: "utilisateurConnection"
+          });
+        }
+      },
+
+      children: [{
+          path: '',
+          name: 'utilisateurTableau',
+          component: () => import("../components/administrateur/utilisateurTableau.vue")
+        },
+        {
+          path: 'compte',
+          name: 'adminPageCompte',
+          component: () => import("../components/administrateur/adminPageCompte.vue")
+        },
+
+
+      ],
+    },
+    //UTILISATEUR
+    {
+      path: '/utilisateurPagePerso',
+      name: 'utilisateurPagePerso',
+      component: () => import("../components/utilisateur/utilisateurPagePerso.vue"),
+      beforeEnter: (to, from, next) => {
+        console.log("methode route appelée");
+        next();
+      },
 
       children: [{
         path: '',
-        name: 'utilisateurTableau',
-        component: () => import("../components/administrateur/utilisateurTableau.vue")
+        name: 'resultatMaintenance',
+        component: () => import("../components/utilisateur/resultatMaintenance.vue")
       }],
-    },
-
-    {
-      path: '/pagePerso',
-      name: 'pagePerso',
-      component: () => import("../components/utilisateur/utilisateurPagePerso.vue")
     },
 
 

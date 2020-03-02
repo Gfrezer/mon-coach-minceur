@@ -22,3 +22,40 @@
   margin-right: auto;
   margin-left: auto;
 }
+
+.resultat label {
+  color: rgb(31, 97, 36);
+}
+
+
+
+.boutonFormulaire {
+  color: rgb(31, 97, 36);
+}
+
+.formulairePerso {
+  position: absolute;
+  width: 36vw;
+  height: 50vw;
+  border: 3px solid #006400;
+  background-color: rgba(149, 149, 151, 0.8);
+  padding: 8px;
+  border-radius: 26px;
+  margin-top: 2vw;
+  margin-left: 5vw;
+}
+
+
+
+.formulairePerso h4 {
+  font-family: 'Times New Roman', Times, serif;
+  color: rgb(68, 156, 68);
+  font-size: 3vw;
+}
+
+.formulairePerso h6 {
+  font-family: 'Times New Roman', Times, serif;
+  color: rgb(68, 156, 68);
+  font-size: 1vw;
+  text-align: center;
+}

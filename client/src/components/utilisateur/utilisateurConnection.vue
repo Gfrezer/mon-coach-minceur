@@ -77,11 +77,11 @@ export default {
             this.errorMessage = "Veuillez entrez des identifiants corrects!";
             this.showDismissibleAlert = true;
           } else {
-            window.localStorage.setItem("user", response.nom);
+            window.localStorage.setItem("user", JSON.stringify(response));
             console.log(response);
             if (response.isAdmin === true) {
               routes.push({ path: "/adminPagePerso" });
-            } else routes.push({ path: "/pagePerso" });
+            } else routes.push({ path: "/utilisateurPagePerso" });
           }
         });
       }

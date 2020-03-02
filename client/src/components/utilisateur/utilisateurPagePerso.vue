@@ -1,9 +1,11 @@
 <template>
-  <div class="formulaire">
+  <div class="formulairePerso">
+    <!--router view faire apparaitre lorsque resultat fait-->
+    <router-view></router-view>
     <b-button v-if="connecter()" @click="logout">Déconnectez-vous</b-button>
     <b-form @submit="onSubmit">
-      <h4>Pas encore membre ?</h4>
-      <h6>Formulaire d'inscription</h6>
+      <h4>Que faire ?</h4>
+      <h6>Veillez rentrer vos valeurs</h6>
 
       <b-form-group id="input-group-1" label="Poids:" label-for="poids">
         <b-form-input
@@ -39,16 +41,6 @@
         ></b-form-input>
       </b-form-group>
 
-      <b-form-group id="input-group-1" label="maintenance:" label-for="maintenance">
-        <b-form-input
-          id="input-4"
-          type="number"
-          v-model="calculateur.maintenance"
-          required
-          placeholder="maintenance"
-        ></b-form-input>
-      </b-form-group>
-
       <b-form-group id="input-group-1" label="surplus Prise Masse:" label-for="surplusPriseMasse">
         <b-form-input
           id="input-5"
@@ -69,28 +61,7 @@
         ></b-form-input>
       </b-form-group>
 
-      <b-form-group id="input-group-1" label="objectif Prise Masse:" label-for="objectifPriseMasse">
-        <b-form-input
-          id="input-7"
-          type="number"
-          v-model="calculateur.objectifPriseMasse"
-          required
-          placeholder="objectifPriseMasse"
-        ></b-form-input>
-      </b-form-group>
-
-      <b-form-group id="input-group-1" label="objectif Seche:" label-for="objectifSeche">
-        <b-form-input
-          id="input-8"
-          type="number"
-          v-model="calculateur.objectifSeche"
-          required
-          placeholder="objectifSeche"
-        ></b-form-input>
-      </b-form-group>
-
       <b-button class="boutonFormulaire" type="submit" variant="primary">Validez</b-button>
-      <router-link to="/utilisateurConnection">Connectez-vous !</router-link>
     </b-form>
   </div>
 </template>
@@ -108,27 +79,31 @@ export default {
         poids: 0,
         tauxDeGraisse: 0,
         multiplicateurActivite: 0,
-        maintenance: 0,
         surplusPriseMasse: 0,
-        deficiteSeche: 0,
-        objectifPriseMasse: 0,
-        objectifSeche: 0
+        deficiteSeche: 0
       }
     };
+  },
+  beforeRouteEnter(to, from, next) {
+    if (window.localStorage.getItem("user")) {
+      next();
+    } else {
+      next({
+        name: "utilisateurConnection"
+      });
+    }
   },
   methods: {
     logout(evt) {
       evt.preventDefault();
       let request = newRequest("/user/logout", "GET");
-      let self = this;
-      fetchRequest(request).then(response => {
+
+      fetchRequest(request).then(() => {
         window.localStorage.removeItem("user");
-        self.$forceUpdate();
-        console.log("reponse à ma requete" + response);
-        alert(`Vous etes déconnecté !`);
-        routes.push({ path: "/accueil/utilisateurConnection" });
+        routes.push({ path: "/accueil" });
       });
     },
+
     connecter() {
       return window.localStorage.getItem("user") ? true : false;
     },
@@ -147,11 +122,12 @@ export default {
         console.log(response);
         // this.user.prenom = "toto " + response.nom;
         alert(`Votre poids de ` + response.poids + ` kgs est à jour!`),
-          routes.push({ path: "/accueil" });
+          routes.push({ path: "/PagePerso" });
       });
     }
   }
 };
 </script>
 
-<style src="../../style/utilisateur/utilisateurFormulaire.css" scoped></style>
+
+<style src="../../style/utilisateur/pagePerso.css" >

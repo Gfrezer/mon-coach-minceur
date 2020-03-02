@@ -17,19 +17,10 @@ module.exports = {
       multiplicateurActivite: {
         type: Sequelize.FLOAT
       },
-      maintenance: {
-        type: Sequelize.FLOAT
-      },
       surplusPriseMasse: {
         type: Sequelize.FLOAT
       },
       deficiteSeche: {
-        type: Sequelize.FLOAT
-      },
-      objectifPriseMasse: {
-        type: Sequelize.FLOAT
-      },
-      objectifSeche: {
         type: Sequelize.FLOAT
       },
       createdAt: {

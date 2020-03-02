@@ -4,14 +4,16 @@ module.exports = (sequelize, DataTypes) => {
     poids: DataTypes.FLOAT,
     tauxDeGraisse: DataTypes.FLOAT,
     multiplicateurActivite: DataTypes.FLOAT,
-    maintenance: DataTypes.FLOAT,
     surplusPriseMasse: DataTypes.FLOAT,
     deficiteSeche: DataTypes.FLOAT,
-    objectifPriseMasse: DataTypes.FLOAT,
-    objectifSeche: DataTypes.FLOAT
+    UserId: DataTypes.INTEGER,
+
   }, {});
   Calculateur.associate = function (models) {
-    Calculateur.belongsTo(models.User)
+    Calculateur.belongsTo(models.User, {
+      onDelete: 'cascade',
+      hooks: true
+    })
   };
   return Calculateur;
 };

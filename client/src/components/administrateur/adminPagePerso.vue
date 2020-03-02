@@ -8,7 +8,7 @@
           <h1 class="h1Admin">Page Administrateur</h1>
 
           <div class="fondText">
-            <router-view class="tableau"></router-view>
+            <router-view></router-view>
           </div>
         </div>
       </div>
