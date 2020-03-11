@@ -57,7 +57,7 @@ export default new VueRouter({
       },
 
       children: [{
-          path: '',
+          path: '/adminPagePerso',
           name: 'utilisateurTableau',
           component: () => import("../components/administrateur/utilisateurTableau.vue")
         },
@@ -81,7 +81,7 @@ export default new VueRouter({
       },
 
       children: [{
-        path: '',
+        path: '/utilisateurPagePerso',
         name: 'resultatMaintenance',
         component: () => import("../components/utilisateur/resultatMaintenance.vue")
       }],

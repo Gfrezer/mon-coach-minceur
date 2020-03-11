@@ -1,7 +1,13 @@
 <template>
   <div class="formulairePerso">
     <!--router view faire apparaitre lorsque resultat fait-->
-    <router-view></router-view>
+    <ul id="example-1">
+      <resultatMaintenance
+        :calculateur="calculateur"
+        :maintenance="maintenance"
+        :objectifPriseMasse="objectifPriseMasse"
+      />
+    </ul>
     <b-button v-if="connecter()" @click="logout">Déconnectez-vous</b-button>
     <b-form @submit="onSubmit">
       <h4>Que faire ?</h4>
@@ -9,7 +15,7 @@
 
       <b-form-group id="input-group-1" label="Poids:" label-for="poids">
         <b-form-input
-          id="input-1"
+          id="poids"
           type="number"
           v-model="calculateur.poids"
           required
@@ -19,7 +25,7 @@
 
       <b-form-group id="input-group-1" label="taux De Graisse:" label-for="tauxDeGraisse">
         <b-form-input
-          id="input-1"
+          id="txGraisse"
           type="number"
           v-model="calculateur.tauxDeGraisse"
           required
@@ -33,7 +39,7 @@
         label-for="multiplicateurActivite"
       >
         <b-form-input
-          id="input-3"
+          id="multiAcvtivite"
           type="number"
           v-model="calculateur.multiplicateurActivite"
           required
@@ -49,6 +55,8 @@
           required
           placeholder="surplusPriseMasse"
         ></b-form-input>
+
+        <b-button size="sm" @click="calculer()" class="mr-1">calculer</b-button>
       </b-form-group>
 
       <b-form-group id="input-group-1" label="deficite Seche:" label-for="deficiteSeche">
@@ -66,15 +74,24 @@
   </div>
 </template>
 
+
 <script>
 import newRequest from "src/libs/request";
 import requestCreate from "src/libs/request";
 import fetchRequest from "src/libs/fetch";
 import routes from "src/routes/routes";
+import resultatMaintenance from "./resultatMaintenance";
+
 export default {
   name: "utilisateurPagePerso",
+  components: {
+    resultatMaintenance
+  },
   data: function() {
     return {
+      maintenance: "",
+      objectifPriseMasse: "",
+
       calculateur: {
         poids: 0,
         tauxDeGraisse: 0,
@@ -102,6 +119,10 @@ export default {
         window.localStorage.removeItem("user");
         routes.push({ path: "/accueil" });
       });
+    },
+
+    calculer() {
+      this.$emit("appCalculer");
     },
 
     connecter() {
