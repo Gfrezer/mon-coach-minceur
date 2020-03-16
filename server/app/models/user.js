@@ -9,10 +9,8 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: '0'
     },
 
-
   }, {});
   User.associate = function (models) {
-
     User.hasMany(models.Calculateur);
   };
   return User;

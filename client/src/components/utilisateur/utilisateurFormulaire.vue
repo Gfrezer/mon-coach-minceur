@@ -34,7 +34,7 @@
 <script>
 import requestCreate from "src/libs/request";
 import fetchRequest from "src/libs/fetch";
-
+import routes from "src/routes/routes";
 export default {
   name: "utilisateurFormulaire",
   data: function() {
@@ -56,7 +56,8 @@ export default {
       // Call REST web service with fetch API
       fetchRequest(request).then(response => {
         // this.user.prenom = "toto " + response.nom;
-        alert(`Votre compte ` + response.nom + ` est à jour!`);
+        alert(`Votre compte ` + response.nom + ` est à jour!`),
+          routes.push({ path: "accueil/utilisateurConnection" });
       });
     }
   }

@@ -5,13 +5,14 @@ const hbs = require("hbs");
 const cookieSession = require("cookie-session");
 const passport = require("passport");
 const passportStrategie = require("./app/modules/passportStrategie");
+const bcrypt = require('bcrypt');
 
 const app = express();
 // COOKIESESSION
 app.use(cookieSession({
     name: 'mysession',
     keys: ['vueauthrandomkey'],
-    maxAge: 01 * 15 * 60 * 1000 // 24 hours
+    maxAge: 12 * 60 * 60 * 1000 // 24 hours
 }))
 app.use(express.json());
 app.use(express.urlencoded({

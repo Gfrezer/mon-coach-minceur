@@ -2,11 +2,7 @@
   <div class="formulairePerso">
     <!--router view faire apparaitre lorsque resultat fait-->
     <ul id="example-1">
-      <resultatMaintenance
-        :calculateur="calculateur"
-        :maintenance="maintenance"
-        :objectifPriseMasse="objectifPriseMasse"
-      />
+      <resultatMaintenance :calculateur="calculateur" :monId="monId" />
     </ul>
     <b-button v-if="connecter()" @click="logout">Déconnectez-vous</b-button>
     <b-form @submit="onSubmit">
@@ -55,8 +51,6 @@
           required
           placeholder="surplusPriseMasse"
         ></b-form-input>
-
-        <b-button size="sm" @click="calculer()" class="mr-1">calculer</b-button>
       </b-form-group>
 
       <b-form-group id="input-group-1" label="deficite Seche:" label-for="deficiteSeche">
@@ -91,6 +85,7 @@ export default {
     return {
       maintenance: "",
       objectifPriseMasse: "",
+      monId: 0,
 
       calculateur: {
         poids: 0,
@@ -100,6 +95,9 @@ export default {
         deficiteSeche: 0
       }
     };
+  },
+  created() {
+    this.fetchData();
   },
   beforeRouteEnter(to, from, next) {
     if (window.localStorage.getItem("user")) {
@@ -111,6 +109,14 @@ export default {
     }
   },
   methods: {
+    fetchData() {
+      let request = newRequest("/calculateur/read", "GET");
+
+      fetchRequest(request).then(response => {
+        console.log(response);
+      });
+    },
+
     logout(evt) {
       evt.preventDefault();
       let request = newRequest("/user/logout", "GET");
@@ -119,10 +125,6 @@ export default {
         window.localStorage.removeItem("user");
         routes.push({ path: "/accueil" });
       });
-    },
-
-    calculer() {
-      this.$emit("appCalculer");
     },
 
     connecter() {
@@ -140,10 +142,9 @@ export default {
       //this.user.prenom = "tata";
       // Call REST web service with fetch API
       fetchRequest(request).then(response => {
-        console.log(response);
-        // this.user.prenom = "toto " + response.nom;
-        alert(`Votre poids de ` + response.poids + ` kgs est à jour!`),
-          routes.push({ path: "/PagePerso" });
+        this.monId = response.id;
+        console.log("mon id" + this.monId);
+        alert(`Votre poids de ` + response.poids + ` kgs est à jour!`);
       });
     }
   }

@@ -1,22 +1,28 @@
 const db = require("../../config/db.config.js");
 const User = db.User;
-
+const bcrypt = require("bcrypt");
 //CREATE
 exports.create = (req, res) => {
+    bcrypt.hash(req.body.password, 10).then(function (hash) {
+        console.log("je passe dedans!!!!!!!!!")
+        User.create({
+            nom: req.body.nom,
+            prenom: req.body.prenom,
+            email: req.body.email,
+            password: hash,
+            isadmin: req.body.isAdmin
 
-    User.create({
-        nom: req.body.nom,
-        prenom: req.body.prenom,
-        email: req.body.email,
-        password: req.body.password,
-        isadmin: req.body.isAdmin
+        }).then(monuser => {
+            console.log(monuser)
+            res.send(monuser);
+        })
 
-    }).then(monuser => {
-        res.send(monuser);
-    })
 
-};
 
+    }).catch(function (error) {
+        console.log("ca foire")
+    });
+}
 //DELETE
 exports.delete = (req, res) => {
 

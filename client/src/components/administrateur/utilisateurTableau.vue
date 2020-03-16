@@ -73,7 +73,7 @@ export default {
     toggleAdmin: function(id, isAdmin) {
       let requestAdmin = newRequest("/user/toggleAdmin", "POST", {
         id: id,
-        isAdmin
+        isAdmin: isAdmin
       });
       fetchRequest(requestAdmin).then(response => {
         alert(`Vous etes Mrs ` + response.nom + ` Administrateur !`);

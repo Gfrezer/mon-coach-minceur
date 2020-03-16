@@ -4,6 +4,9 @@ const userLogin = require("../controllers/user/userLogin");
 const userLogout = require("../controllers/user/userLogout");
 const calculateurPoids = require("../controllers/pagePerso/calculateurPoids");
 const adminAuthMiddleware = require("../middleware/adminAuthMiddleware");
+const resultatMaintenance = require("../controllers/pagePerso/resultatMaintenance");
+
+
 module.exports = function (app) {
     //UTILISATEUR
     app.post("/user/create", users.create);
@@ -15,4 +18,7 @@ module.exports = function (app) {
 
     //CALCULATEURS
     app.post("/calculateur/poids", userAuthMiddleware, calculateurPoids.create);
+    app.get("/calculateur/read", userAuthMiddleware, calculateurPoids.read);
+    //resultat maintenance
+    app.post("/resultat/maintenance", userAuthMiddleware, resultatMaintenance.create);
 };
