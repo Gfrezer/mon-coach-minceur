@@ -1,21 +1,39 @@
 .navbarAccueil {
-    width: 17vw;
-    height: 30vw;
-    margin-left: 30vw;
-    margin-top: 30vw;
-    position: absolute;
-    background-color: rgba(149, 149, 151, 0.8);
-
+  width: 17vw;
+  height: 30vw;
+  margin-left: 30vw;
+  margin-top: 30vw;
+  position: absolute;
+  background-color: rgba(149, 149, 151, 0.8);
 }
 
 .navbar-expand .navbar-nav {
-    -ms-flex-direction: row;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    flex-direction: column;
+  -ms-flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  flex-direction: column;
 }
 
-.navbar-expand .navbar-nav {
-    font-size: 1.3vw;
+.navbar-brand {
+  font-size: 1.8vw;
+  margin-right: ;
+}
 
+.bg-info {
+  background-color: #21583a !important;
+}
+
+a {
+  color: #3e7c1a;
+}
+
+button {
+  margin-left: 2vw;
+  color: #a8c09b;
+  background-color: #1c722b;
+}
+button:hover {
+  margin-left: 2vw;
+  color: #0f521a;
+  background-color: #acbea7;
 }

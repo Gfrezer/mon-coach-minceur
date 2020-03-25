@@ -57,7 +57,7 @@ export default {
       fetchRequest(request).then(response => {
         // this.user.prenom = "toto " + response.nom;
         alert(`Votre compte ` + response.nom + ` est à jour!`),
-          routes.push({ path: "accueil/utilisateurConnection" });
+          routes.push({ path: "/accueil/utilisateurConnection" });
       });
     }
   }

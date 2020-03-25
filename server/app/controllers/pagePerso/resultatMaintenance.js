@@ -5,14 +5,11 @@ const ResultatMaintenance = db.resultatMaintenance;
 
 exports.create = (req, res) => {
     console.log("ca passe ResultatMaintenance");
-
-
     ResultatMaintenance.create({
             maintenanceCalc: req.body.maintenanceCalc,
             priseDeMasseCalc: req.body.priseDeMasseCalc,
             objectiSecheCalc: req.body.objectiSecheCalc,
             CalculateurId: req.body.idTrouve
-
         })
         .then(resultatMaint => {
             res.send(resultatMaint);

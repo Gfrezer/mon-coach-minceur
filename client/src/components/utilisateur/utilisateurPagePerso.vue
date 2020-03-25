@@ -81,6 +81,7 @@ export default {
   components: {
     resultatMaintenance
   },
+
   data: function() {
     return {
       maintenance: "",
@@ -111,9 +112,8 @@ export default {
   methods: {
     fetchData() {
       let request = newRequest("/calculateur/read", "GET");
-
       fetchRequest(request).then(response => {
-        console.log(response);
+        console.log("reponse calculeur read " + response);
       });
     },
 
@@ -143,7 +143,7 @@ export default {
       // Call REST web service with fetch API
       fetchRequest(request).then(response => {
         this.monId = response.id;
-        console.log("mon id" + this.monId);
+        console.log("mon id calculateur poids est " + this.monId);
         alert(`Votre poids de ` + response.poids + ` kgs est à jour!`);
       });
     }

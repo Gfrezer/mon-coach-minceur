@@ -3,9 +3,9 @@
     <div>
       <div class="container-accueil">
         <div class="home_title">
-          <img src="../../../public/images/parquet.jpg" class="photo_parquet" />
           <h1>Bienvenue sur mon Coachminceur</h1>
           <img src="../../../public/images/mesureTaille.jpg" class="photo_personne" />
+
           <p>
             site pour
             <br />du poids

@@ -1,6 +1,6 @@
 <template>
   <div class="resultat">
-    <b-form @submit="onSubmit">
+    <b-form v-if="valideparCalculateur" @onSubmit="onSubmit">
       <h4>MAINTENANCE</h4>
       <h6>resultat</h6>
 
@@ -12,8 +12,6 @@
 
       <h3>Objectif sèche:</h3>
       <h5>{{objectiSecheCalc}}</h5>
-
-      <b-button class="boutonFormulaire" type="submit" variant="primary">Validez</b-button>
     </b-form>
   </div>
 </template>
@@ -48,13 +46,18 @@ export default {
     },
     objectiSecheCalc: function() {
       return (1 + this.calculateur.deficiteSeche / 100) * this.maintenanceCalc;
+    },
+
+    valideparCalculateur: function() {
+      console.log(this.monId);
+      return this.monId ? true : false;
     }
   },
 
-  methods: {
-    onSubmit(evt) {
+  method: {
+    onSubmit: function(evt) {
       evt.preventDefault();
-      console.log("mon id" + this.monId);
+      console.log("mon id resultat maintenance est " + this.monId);
       let request = requestCreate("/resultat/maintenance", "POST", {
         maintenanceCalc: this.maintenanceCalc,
         priseDeMasseCalc: this.priseDeMasseCalc,
@@ -62,9 +65,9 @@ export default {
         idTrouve: this.monId
       });
 
-      fetchRequest(request).then(response => {
-        alert(`maintenance` + response.poids + ` est à jour!`),
-          routes.push({ path: "/PagePerso" });
+      fetchRequest(request).then(() => {
+        alert(`votre maintenance est à jour!`),
+          routes.push({ path: "/utilisateurPagePerso" });
       });
     }
   }
@@ -74,4 +77,22 @@ export default {
 
 <style src="../../style/utilisateur/resultatMaintenance.css" >
 </style>
-        
+
+
+
+        onSubmit(evt) {
+      evt.preventDefault();
+      console.log("mon id resultat maintenance est " + this.monId);
+      let request = requestCreate("/resultat/maintenance", "POST", {
+        maintenanceCalc: this.maintenanceCalc,
+        priseDeMasseCalc: this.priseDeMasseCalc,
+        objectiSecheCalc: this.objectiSecheCalc,
+        idTrouve: this.monId
+      });
+
+      fetchRequest(request).then(() => {
+        alert(`votre maintenance est à jour!`),
+          routes.push({ path: "/utilisateurPagePerso" });
+      })
+      //return
+    }    
