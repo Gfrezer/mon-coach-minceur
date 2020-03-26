@@ -10,14 +10,15 @@
 
 .formulaire {
     position: absolute;
-    width: 46vw;
-    height: 23vw;
-    border: 3px solid #006400;
-    background-color: rgba(149, 149, 151, 0.8);
+    width: 30vw;
+    height: 36vw;
+    border: 1px solid #006400;
+    background-color: rgba(236, 238, 236, 0.616);
     padding: 8px;
-    border-radius: 26px;
-    margin-top: 34vw;
-    margin-left: 49vw;
+    border-radius: 8px;
+    margin-left: -190px;
+    margin-top: 3vw;
+
 }
 
 .formulaire h4 {

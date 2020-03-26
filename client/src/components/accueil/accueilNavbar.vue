@@ -35,7 +35,8 @@
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
           <b-nav-item right>
-            <b-button>Inscription</b-button>
+            <b-button class="btn" @click="openModalFormu">Inscription</b-button>
+            <leFormulaire v-model="modalOpenFormulaire"></leFormulaire>
             <b-button>connection</b-button>
           </b-nav-item>
         </b-navbar-nav>
@@ -46,8 +47,25 @@
  
 
 <script>
+import leFormulaire from "../utilisateur/utilisateurFormulaire";
 export default {
-  name: "accueilNavbar"
+  name: "accueilNavbar",
+  components: {
+    leFormulaire
+  },
+  data() {
+    return {
+      modalOpenFormulaire: false
+    };
+  },
+  methods: {
+    openModal() {
+      this.modalOpen = !this.modalOpen;
+    },
+    openModalFormu() {
+      this.modalOpenFormulaire = !this.modalOpenFormulaire;
+    }
+  }
 };
 </script>
 

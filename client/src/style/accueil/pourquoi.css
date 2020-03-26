@@ -3,7 +3,13 @@
     font-family: sans-serif;
     color: rgb(0, 0, 0);
     position: absolute;
-    margin-top: 34vw;
-    margin-left: 49vw;
-    width: 48vw;
+    margin-top: 15vw;
+    margin-left: 55vw;
+    width: 40vw;
+}
+
+.pourquoiText h4 {
+    position: absolute;
+    margin-top: 12vw;
+    margin-left: 55vw;
 }

@@ -5,14 +5,10 @@
         <div class="home_title">
           <h1>Bienvenue sur mon Coachminceur</h1>
           <img src="../../../public/images/mesureTaille.jpg" class="photo_personne" />
-
-          <p>
-            site pour
-            <br />du poids
-          </p>
+          <router-view></router-view>
+          <p>Site pour du poids</p>
           <div class="fondText"></div>
         </div>
-        <router-view></router-view>
         <accueilNavbar />
       </div>
     </div>

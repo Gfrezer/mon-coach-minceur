@@ -5,103 +5,57 @@
 /* Liu Jian Mao Cao,Cormorant Garamond,Sawarabi Mincho*/
 .html,
 body {
-  margin: 0px;
-  width: 100%;
-  height: 100%;
+    margin: 0px;
+    width: 100%;
+    height: 100%;
 }
 
 .home_title h1 {
-  font-family: "Liu Jian Mao Cao";
-  color: rgb(16, 124, 25);
-  font-size: 3vw;
-  margin: 0px;
-  position: absolute;
-  margin-top: 10vw;
+    font-family: "Liu Jian Mao Cao";
+    color: rgb(16, 124, 25);
+    font-size: 3.6vw;
+    margin: 0px;
+    position: absolute;
+    margin-top: 8vw;
+    margin-left: 3vw;
 }
 
 .photo_parquet {
-  position: absolute;
-  width: 100%;
+    position: absolute;
+    width: 100%;
 }
 
 .photo_personne {
-  position: absolute;
-  width: 45vw;
-  height: auto;
-  margin-top: 10vw;
-  margin-left: 47vw;
-  border-radius: 15px;
+    position: absolute;
+    width: 45vw;
+    height: auto;
+    margin-top: 18vw;
+    margin-left: 3vw;
+    border-radius: 15px;
 }
 
 .home_title p {
-  font-size: 2vw;
-  font-family: sans-serif;
-  color: darkgreen;
-  position: absolute;
-  margin-top: 15vw;
-  margin-left: 27vw;
-  width: 20vw;
-  height: 15vw;
-  background-color: rgba(149, 149, 151, 0.8);
+    font-size: 1.5vw;
+    font-family: sans-serif;
+    color: darkgreen;
+    position: absolute;
+    margin-top: 13vw;
+    margin-left: 19vw;
+
 }
 
-.fondText {
-  position: absolute;
-  width: 80vw;
-  height: 26vw;
-  background-color: rgba(149, 149, 151, 0.8);
-  margin-top: 32.5vw;
-  margin-left: 17vw;
-  border-radius: 1vw;
-}
+
 
 .nav-link {
-  padding: 50px;
+    padding: 50px;
 }
 
-/*GRID 4 PHOTOS ACCUEIL*/
 
-.wrapper {
-  margin-top: 60vw;
-  display: grid;
-  grid-template-columns: repeat(2, 47vw);
-  grid-gap: 10px;
-  grid-template-rows: repeat(2, 22vw);
-}
-
-#photo_sport {
-  grid-column: 1;
-  grid-row: 1;
-  width: 45vw;
-  height: 20vw;
-}
-
-#plats {
-  grid-column: 2;
-  grid-row: 1;
-  width: 45vw;
-  height: 20vw;
-  background-size: contain;
-}
-
-#imc {
-  grid-column: 1;
-  grid-row: 2;
-  width: 45vw;
-  height: 20vw;
-}
-
-#vitamines {
-  grid-column: 2;
-  grid-row: 2;
-  width: 45vw;
-  height: 20vw;
-}
 
 @media screen and (max-width: 640px) {
-  .formulaireAccueil {
-    position: absolute;
-    margin-top: 80px;
-    margin-left: 50%;
-  }
+    .formulaireAccueil {
+        position: absolute;
+        margin-top: 80px;
+        margin-left: 50%;
+    }
 }

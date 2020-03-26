@@ -1,6 +1,7 @@
 
 <template>
   <div class="quiSommesNousText">
+    <h4>Qui sommes nous ?</h4>
     <p>
       Plus facile à dire qu’à faire ? Faites appel aux rouages du storytelling :
       Situation initiale : l’époque d’avant l’entreprise. Que faisiez-vous ?
