@@ -1,5 +1,5 @@
 <template>
-  <div class="formulaire" id="modalFormulaire" v-if="value">
+  <div class="formulaire" id="modalFormulaire">
     <b-form @submit="onSubmit">
       <h4>Pas encore membre ?</h4>
       <h6>Formulaire d'inscription</h6>
@@ -36,12 +36,6 @@ import fetchRequest from "src/libs/fetch";
 import routes from "../../routes/routes";
 export default {
   name: "utilisateurFormulaire",
-
-  props: {
-    value: {
-      required: true
-    }
-  },
 
   data: function() {
     return {

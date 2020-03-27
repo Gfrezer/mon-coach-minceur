@@ -1,5 +1,5 @@
 <template>
-  <div class="connection" id="modalConnection" v-if="value">
+  <div class="connection" id="modalConnection">
     <b-form @submit="login">
       <h4>MEMBRE</h4>
       <h6>Veillez vous identifiez</h6>
@@ -43,11 +43,6 @@ import routes from "src/routes/routes";
 export default {
   name: "utilisateurConnection",
 
-  props: {
-    value: {
-      required: true
-    }
-  },
   data() {
     return {
       email: "",

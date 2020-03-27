@@ -5,7 +5,7 @@
         <div class="home_title">
           <h1>Bienvenue sur mon Coachminceur</h1>
           <img src="../../../public/images/mesureTaille.jpg" class="photo_personne" />
-          <div v-if="!cacherText && !cacherRouter">
+          <div v-if="!afficherForm === true && !cacherText">
             <h2>Manger avec plaisir</h2>
             <h3>
               "Lorem ipsum dolor sit amet, laudem explicari nam id, vel invidunt molestiae ut. Vitae tacimates cu sed. Sed no tamquam propriae definitionem, debet error vim no. Eam ex malis accusam, ad vis quas commune voluptatum, tibique deleniti epicurei duo in. Meliore habemus insolens et qui, ex ius amet facilisi.
@@ -13,16 +13,16 @@
             </h3>
             <img src="../../../public/images/platAccueil.jpg" class="photo_plat" />
           </div>
-          <div v-if="!cacherRouter">
+          <div v-if="!afficherForm">
             <router-view></router-view>
           </div>
-          <div v-if="!cacherRouter">
+          <div v-if="afficherForm">
             <utilisateurFormulaire />
           </div>
           <p>Site pour perdre du poids</p>
           <div class="fondText"></div>
         </div>
-        <accueilNavbar @event="cacherRouterView" @aSavoir="cacherTextAccueil" />
+        <accueilNavbar @formu="cacherRouterView" @aSavoir="cacherTextAccueil" />
       </div>
     </div>
   </section>
@@ -39,13 +39,14 @@ export default {
 
   data: function() {
     return {
-      cacherRouter: false,
+      afficherForm: false,
       cacherText: false
     };
   },
   methods: {
     cacherRouterView(modalOpenFormulaire) {
-      this.cacherRouter = modalOpenFormulaire;
+      this.afficherForm = modalOpenFormulaire;
+      console.log("ceci est parent " + this.afficherForm);
     },
 
     cacherTextAccueil(aSavoirBouleen) {

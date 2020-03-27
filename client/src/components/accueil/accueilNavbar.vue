@@ -42,10 +42,13 @@
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
           <b-nav-item right>
-            <b-button class="btn" @click="openModalFormu">Inscription</b-button>
+            <b-button v-model="modalOpenFormulaire" class="btn" @click="openModalFormu">Inscription</b-button>
 
-            <b-button class="btn" @click="openModalConnection">connection</b-button>
-            <seConnecter v-model="modalOpenConnection"></seConnecter>
+            <b-button
+              v-model="modalOpenConnection"
+              class="btn"
+              @click="openModalConnection"
+            >connection</b-button>
           </b-nav-item>
         </b-navbar-nav>
       </b-collapse>
@@ -55,12 +58,8 @@
  
 
 <script>
-import seConnecter from "../utilisateur/utilisateurConnection";
 export default {
   name: "accueilNavbar",
-  components: {
-    seConnecter
-  },
 
   data() {
     return {
@@ -82,7 +81,8 @@ export default {
     openModalFormu() {
       if (this.modalOpenConnection === false) {
         this.modalOpenFormulaire = !this.modalOpenFormulaire;
-        this.$emit("event", this.modalOpenFormulaire);
+        this.$emit("formu", this.modalOpenFormulaire);
+        console.log("ceci est enfant " + this.modalOpenFormulaire);
       }
     },
     openModalConnection() {
