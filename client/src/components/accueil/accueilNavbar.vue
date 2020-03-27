@@ -88,7 +88,7 @@ export default {
     openModalConnection() {
       if (this.modalOpenFormulaire === false) {
         this.modalOpenConnection = !this.modalOpenConnection;
-        this.$emit("event", this.modalOpenConnection);
+        this.$emit("connect", this.modalOpenConnection);
       }
     }
   }
