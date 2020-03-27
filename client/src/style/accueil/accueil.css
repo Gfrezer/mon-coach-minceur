@@ -34,17 +34,46 @@ body {
     border-radius: 15px;
 }
 
+.photo_plat {
+    position: absolute;
+    width: 45vw;
+    height: auto;
+    margin-top: 14vw;
+    margin-left: 51vw;
+    border-radius: 15px;
+}
+
 .home_title p {
     font-size: 1.5vw;
     font-family: sans-serif;
     color: darkgreen;
     position: absolute;
     margin-top: 13vw;
-    margin-left: 19vw;
+    margin-left: 17vw;
 
 }
 
+.home_title h2 {
+    font-size: 1.5vw;
+    font-family: sans-serif;
+    color: darkgreen;
+    position: absolute;
+    margin-top: 6vw;
+    margin-left: 51vw;
 
+}
+
+.home_title h3 {
+    font-size: 1vw;
+    font-family: sans-serif;
+    color: darkgreen;
+    position: absolute;
+    margin-top: 9vw;
+    margin-left: 51vw;
+    text-align: justify;
+    width: 45vw;
+
+}
 
 .nav-link {
     padding: 50px;

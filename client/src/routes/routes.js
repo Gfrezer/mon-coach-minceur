@@ -9,8 +9,9 @@ export default new VueRouter({
   // Règles de routage seront complétées dans la section suivante
 
   mode: 'history',
-  routes: [{
-      //ACCUEIL
+  routes: [
+    //ACCUEIL
+    {
       path: "/",
       redirect: "/accueil"
     },
@@ -29,12 +30,17 @@ export default new VueRouter({
           component: () => import("../components/utilisateur/utilisateurFormulaire.vue")
         },
         {
+          path: 'alimentEntiers',
+          name: 'alimentEntiers',
+          component: () => import("../components/accueil/alimentsEntiers.vue")
+        },
+        {
           path: 'pourquoiCaMarche',
           name: 'pourquoi',
           component: () => import("../components/accueil/pourquoi.vue")
         },
         {
-          path: 'quisommesNousIci',
+          path: 'quisommesNous',
           name: 'quiSommesNous',
           component: () => import("../components/accueil/quiSommesNous.vue")
         },

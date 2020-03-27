@@ -1,5 +1,5 @@
 <template>
-  <div class="formulaire" id="modalFormulaire" v-show="value">
+  <div class="formulaire" id="modalFormulaire" v-if="value">
     <b-form @submit="onSubmit">
       <h4>Pas encore membre ?</h4>
       <h6>Formulaire d'inscription</h6>
@@ -26,7 +26,6 @@
       </b-form-group>
 
       <b-button class="boutonFormulaire" type="submit" variant="primary">Validez</b-button>
-      <router-link to="/utilisateurConnection">Connectez-vous !</router-link>
     </b-form>
   </div>
 </template>
@@ -34,7 +33,7 @@
 <script>
 import requestCreate from "src/libs/request";
 import fetchRequest from "src/libs/fetch";
-import routes from "src/routes/routes";
+import routes from "../../routes/routes";
 export default {
   name: "utilisateurFormulaire",
 

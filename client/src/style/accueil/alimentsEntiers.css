@@ -1,0 +1,13 @@
+.alimentsEntiers img {
+
+    position: absolute;
+    margin-top: 15vw;
+    margin-left: 55vw;
+    width: 40vw;
+}
+
+.alimentsEntiers h4 {
+    position: absolute;
+    margin-top: 12vw;
+    margin-left: 55vw;
+}

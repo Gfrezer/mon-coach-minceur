@@ -1,5 +1,5 @@
 <template>
-  <div class="formulaire">
+  <div class="connection" id="modalConnection" v-if="value">
     <b-form @submit="login">
       <h4>MEMBRE</h4>
       <h6>Veillez vous identifiez</h6>
@@ -8,7 +8,7 @@
 
       <b-form-group id="input-group-1" label="email:" label-for="email">
         <b-form-input
-          id="input-1"
+          id="input-5"
           type="email"
           v-model="email"
           required
@@ -19,7 +19,7 @@
 
       <b-form-group id="input-group-2" label="password:" label-for="password">
         <b-form-input
-          id="input-2"
+          id="input-6"
           type="password"
           v-model="password"
           required
@@ -41,8 +41,13 @@ import fetchRequest from "src/libs/fetch";
 import routes from "src/routes/routes";
 
 export default {
-  name: "utilisateurFormulaire",
+  name: "utilisateurConnection",
 
+  props: {
+    value: {
+      required: true
+    }
+  },
   data() {
     return {
       email: "",

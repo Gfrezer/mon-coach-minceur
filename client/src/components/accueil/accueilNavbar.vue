@@ -3,28 +3,35 @@
     <b-navbar toggleable="lg" type="dark" variant="info">
       <b-navbar-brand>Mon Coach Minceur</b-navbar-brand>
       <b-navbar-nav class="ml-auto">
-        <b-nav-item-dropdown text="A Savoir" right>
-          <b-dropdown-item>
-            <a href="https://www.google.com">
-              LES ALIMENTS
-              <br />ENTIERS
-            </a>
-          </b-dropdown-item>
-          <b-dropdown-item>
-            <router-link
-              :to="{name:'pourquoi'}"
-              class="nav-item"
-              active-class="active"
-              exact
-            >POURQUOI CA MARCHE ?</router-link>
-          </b-dropdown-item>
-          <b-dropdown-item>
-            <router-link :to="{name:'quiSommesNous'}" class="nav-item" active-class="active" exact>
-              QUI SOMMES
-              <br />NOUS ?
-            </router-link>
-          </b-dropdown-item>
-        </b-nav-item-dropdown>
+        <div @mouseover="onOver" @mouseleave="onLeave">
+          <b-nav-item-dropdown text="A Savoir" right ref="dropdown">
+            <b-dropdown-item>
+              <router-link
+                :to="{name:'alimentEntiers'}"
+                class="nav-item"
+                active-class="active"
+                exact
+              >
+                <span @click="pourFermer">LES ALIMENTS ENTIERS</span>
+              </router-link>
+            </b-dropdown-item>
+            <b-dropdown-item>
+              <router-link :to="{name:'pourquoi'}" class="nav-item" active-class="active" exact>
+                <span @click="pourFermer">POURQUOI CA MARCHE ?</span>
+              </router-link>
+            </b-dropdown-item>
+            <b-dropdown-item>
+              <router-link
+                :to="{name:'quiSommesNous'}"
+                class="nav-item"
+                active-class="active"
+                exact
+              >
+                <span @click="pourFermer">QUI SOMMES NOUS ?</span>
+              </router-link>
+            </b-dropdown-item>
+          </b-nav-item-dropdown>
+        </div>
       </b-navbar-nav>
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
@@ -36,8 +43,9 @@
         <b-navbar-nav class="ml-auto">
           <b-nav-item right>
             <b-button class="btn" @click="openModalFormu">Inscription</b-button>
-            <leFormulaire v-model="modalOpenFormulaire"></leFormulaire>
-            <b-button>connection</b-button>
+
+            <b-button class="btn" @click="openModalConnection">connection</b-button>
+            <seConnecter v-model="modalOpenConnection"></seConnecter>
           </b-nav-item>
         </b-navbar-nav>
       </b-collapse>
@@ -47,23 +55,41 @@
  
 
 <script>
-import leFormulaire from "../utilisateur/utilisateurFormulaire";
+import seConnecter from "../utilisateur/utilisateurConnection";
 export default {
   name: "accueilNavbar",
   components: {
-    leFormulaire
+    seConnecter
   },
+
   data() {
     return {
-      modalOpenFormulaire: false
+      modalOpenFormulaire: false,
+      modalOpenConnection: false
     };
   },
   methods: {
-    openModal() {
-      this.modalOpen = !this.modalOpen;
+    pourFermer() {
+      this.$emit("aSavoir", this.pourFermer);
+    },
+
+    onOver() {
+      this.$refs.dropdown.visible = true;
+    },
+    onLeave() {
+      this.$refs.dropdown.visible = false;
     },
     openModalFormu() {
-      this.modalOpenFormulaire = !this.modalOpenFormulaire;
+      if (this.modalOpenConnection === false) {
+        this.modalOpenFormulaire = !this.modalOpenFormulaire;
+        this.$emit("event", this.modalOpenFormulaire);
+      }
+    },
+    openModalConnection() {
+      if (this.modalOpenFormulaire === false) {
+        this.modalOpenConnection = !this.modalOpenConnection;
+        this.$emit("event", this.modalOpenConnection);
+      }
     }
   }
 };
