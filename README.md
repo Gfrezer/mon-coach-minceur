@@ -1,4 +1,6 @@
 # mon-coach-minceur
 
-Site pour calculer les calories besoins par jour pour perdre du poids.
-en cours de developpement.
+Site de coaching minceur en cours de developpement.
+- calcul de Taux métabolique de base (niveau de calories maximal pour une perte de poids)
+- base de données de données nutritionnelles d'aliments
+- conseils alimentaires
